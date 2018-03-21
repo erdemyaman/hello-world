@@ -1,5 +1,6 @@
 #pragma once
 
+template<typename T>
 class Node
 {
 public:
@@ -8,14 +9,17 @@ public:
 	
 	virtual ~Node();
 	
-	unsigned getId() {return m_id;}
-	void setData(int data) {m_data = data;}
+	unsigned GetId() {return m_id;}
+	void SetData(T data) {m_data = data;}
+	T GetData() {return m_data;}
 	
-	
-	void print(bool escape = true);
+	//for tracing
+	void Print(bool escape = true);
 	
 private:
 	unsigned m_id;
 	Node* m_parent;
-	int m_data;
+	T m_data;
 };
+
+#include "node.inl"
